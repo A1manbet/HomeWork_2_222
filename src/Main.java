@@ -1,26 +1,31 @@
 public class Main {
-    Cars s;
+
     public static void main(String[] args) {
-        createObject("Lexus");
+       Cars s = createObject("Lexus");
+       Cars b = createObject("Bmw");
+       Cars v = createObject("Mercedes");
+
+       Cars[] cars = {s, b, v};
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].print();
+        }
     }
 
-    public Cars createObject(String className) {
+    public static Cars createObject(String className) {
 
         switch (className) {
             case "Lexus" :
                 Lexus lexus = new Lexus("470", 2023);
-                s = lexus;
-                break;
+                return lexus;
             case "Bmw" :
                 Bmw bmw = new Bmw("samurai", "black");
-                s = bmw;
-                break;
+                return bmw;
             case "Mercedes" :
                 Mercedes mercedes = new Mercedes("x5", "sedan");
-                s = mercedes;
-                break;
+                return mercedes;
+            default: return null;
+
         }
-        return s;
 
     }
 }
